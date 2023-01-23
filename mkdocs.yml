@@ -1,0 +1,57 @@
+﻿# Project information
+site_name: API Requirements for Dutch Healthcare
+site_description: Requirements for Application Programming Interfaces (APIs) in Dutch Healthcare.
+site_author: Nictiz
+site_url: https://nictiz.github.io/api-requirements-docs/
+
+# Repository
+repo_url: https://github.com/nictiz/api-requirements-docs
+edit_uri: blob/main/docs/
+
+# Navigation
+nav:
+  - 'Overview': index.md
+  - 'Introduction': introduction.md
+  - 'Notational Conventions': notational-conventions.md
+  - 'Definitions and scope': definitions-and-scope.md
+  - 'API specification & documentation': api-specification-and-documentation.md
+  - 'API testability': api-testability.md
+  - 'API discoverability': api-discoverability.md
+  - 'API onboarding': api-onboarding.md
+  - 'API Lifecycle management and versioning': api-lifecycle-management-and-versioning.md
+  - 'API agreements': api-agreements.md
+  - 'API design rules': api-design-rules.md
+  - 'API security': api-security.md
+  - 'Health Information Standards compliance': health-information-standards-compliance.md
+  - 'Contributing': contributing.md
+  
+# Configuration
+theme:
+  name: material
+  language: en
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: deep orange
+      accent: deep orange
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: deep orange
+      accent: deep orange
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - search.suggest
+    - search.highlight
+  font:
+    text: Roboto
+    code: JetBrains Mono
+
+# Extensions
