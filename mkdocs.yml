@@ -94,3 +94,7 @@ copyright: >-
   <a href="https://nictiz.nl/privacy-statement" target="_blank" rel="noopener">Privacy statement</a>
 
 # Extensions
+plugins:
+  - search
+  - mike:
+      canonical_version: latest
