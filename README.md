@@ -70,3 +70,59 @@ Further paragraphs come after blank lines.
 
 Not every commit messages necessitates the use of both a subject and a body. A single line indicating the subject can be
 sufficient in some cases, especially when the change is so little that no more context is required.
+
+## Release Notes
+
+We use
+[GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+to trigger [deployment](#deploying-docs) of new versions of documentation to GitHub Pages and to create a formatted
+changelog. The release notes must tell someone what upgrading will do. It communicates an *intent* of change.
+
+This project embraces the guiding principle of [Keep a Changelog](https://keepachangelog.com/) and
+[Common Changelog](https://common-changelog.org/) that changelogs must be written by humans and for humans. Spending a
+modest amount of time on writing a changelog saves every reader twice as much time.
+
+### Rules for Writing Release Notes
+
+Contributors **MUST** adhere to the following general guidelines when writing release notes:
+
+- The same type of changes should be grouped:
+   - `Added` for new features
+   - `Changed` for changes in existing functionality
+   - `Deprecated` for soon-to-be removed features
+   - `Removed` for now removed features
+   - `Fixed` for any bug fixes
+- Each category heading must be followed by (and only by) an unnumbered Markdown list. Each item in the list should be a
+  single line that must start with a change, followed by one or more references if available: `(#1, #2)`.
+- Write a change using the imperative mood. It must start with a present-tense verb, for example (but not limited to)
+  `Add`, `Support`, `Refactor`, `Document`, `Fix`, `Deprecate`. Git commits follow the same convention.
+- Each change must be self-describing, as if no category heading exists.
+- Sort changes by importance and skip changes that are not important.
+- Breaking changes must be prefixed in bold with `**Breaking:**` and should be listed before other changes (per
+  category).
+
+### Release Notes Markdown
+
+The release notes are written in Markdown. The "Release title" that is entered as part of the standard GitHub release
+management process is considered to be the `h1` heading (`# Heading level 1` in Markdown). Release notes must start with
+a second-level Markdown heading.
+
+```
+## Overview
+
+Summarize changes this release brings.
+
+## Changelog
+
+### Changed
+
+- **Breaking:**: change applicable role of requirement SD001
+
+### Fixed
+
+- Fix publish workflow ([#120](https://github.com/owner/name/issues/120))
+
+### Added
+
+- Add "Rules for writing requirements" section
+```
