@@ -1,0 +1,49 @@
+﻿name: Publish docs
+
+on:
+  push:
+    tags:
+      - v*
+
+permissions:
+  contents: write
+
+jobs:
+  deploy_docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Fetch all history for all tags and branches
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+          
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install mkdocs
+          python3 -m pip install mkdocs-material
+          python3 -m pip install mike
+          
+      # Configure Git user so that mike can make commits
+      - name: Configure Git user
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          
+      # Tag name is available via:
+      #
+      #   ${{ github.ref_name }} - github context
+      #   $GITHUB_REF_NAME - Default environment variables
+      #
+      # Move `latest` alias from previous version to this version using `--update-aliases`
+      #
+      # Deploy new version of docs by creating a new Git commit on `gh-pages` branch
+      - name: Deploy version with mike
+        run: |
+          mike deploy --push --update-aliases ${{ github.ref_name }} latest
