@@ -87,11 +87,11 @@ modest amount of time on writing a changelog saves every reader twice as much ti
 Contributors **MUST** adhere to the following general guidelines when writing release notes:
 
 - The same type of changes should be grouped:
-   - `Added` for new features
-   - `Changed` for changes in existing functionality
-   - `Deprecated` for soon-to-be removed features
-   - `Removed` for now removed features
-   - `Fixed` for any bug fixes
+    - `Added` for new features
+    - `Changed` for changes in existing functionality
+    - `Deprecated` for soon-to-be removed features
+    - `Removed` for now removed features
+    - `Fixed` for any bug fixes
 - Each category heading must be followed by (and only by) an unnumbered Markdown list. Each item in the list should be a
   single line that must start with a change, followed by one or more references if available: `(#1, #2)`.
 - Write a change using the imperative mood. It must start with a present-tense verb, for example (but not limited to)
