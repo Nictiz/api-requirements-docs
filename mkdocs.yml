@@ -89,4 +89,8 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/nictiz/
 
+copyright: >-
+  Copyright &copy; 2023 Nictiz | <a href="#__consent">Change cookie settings</a> |
+  <a href="https://nictiz.nl/privacy-statement" target="_blank" rel="noopener">Privacy statement</a>
+
 # Extensions
