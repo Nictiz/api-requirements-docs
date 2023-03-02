@@ -137,3 +137,10 @@ formatted text using a plain-text editor. Visit open-source reference guide
 
 For the sake of readability, contributors **MUST** wrap lines at **120** characters. This does not apply to Markdown
 headings and tables (Extended Syntax). Refer to your IDE/text editor's documentation on how to configure visual guides.
+
+## Building Docs
+
+This project uses [MkDocs](https://github.com/mkdocs/mkdocs) together with the
+[material theme](https://squidfunk.github.io/mkdocs-material/) and [mike](https://github.com/jimporter/mike) to build
+the documentation as a static website from the contents (Markdown files) of this Github repository. Project settings for
+MkDocs are configured with a single `mkdocs.yml` YAML configuration file.
