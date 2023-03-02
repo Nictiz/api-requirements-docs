@@ -144,3 +144,50 @@ This project uses [MkDocs](https://github.com/mkdocs/mkdocs) together with the
 [material theme](https://squidfunk.github.io/mkdocs-material/) and [mike](https://github.com/jimporter/mike) to build
 the documentation as a static website from the contents (Markdown files) of this Github repository. Project settings for
 MkDocs are configured with a single `mkdocs.yml` YAML configuration file.
+
+## Deploying Docs
+
+This project uses GitHub Actions to automate the deployment of new versions of documentation to GitHub Pages. This
+*Publish docs* workflow is triggered whenever a new `v*` tag, for example `v1.1.0`, is created. Tags are created as part
+of the standard release management process on GitHub and tags are named according to the
+[Semantic Version 2.0.0](https://semver.org/) (SemVer) specification for versioning.
+
+### Versioning
+
+When deploying a new version of the documentation, older versions remain untouched. This works by creating a new Git
+commit on the `gh-pages` branch every time a new version of the documentation is deployed using `mike deploy`.
+
+### Setting the Default Version
+
+When the first version has been published, checkout the `gh-pages` branch and set the default version to `latest` so
+that people visiting the root of the site are redirected to the latest version of the documentation:
+
+```
+mike set-default --push latest
+```
+
+### Existing Documentation
+
+If you have existing documentation on your `gh-pages` branch, you may want to *completely* wipe the contents of your
+docs branch before building new versioned docs:
+
+```
+mike delete --push --all
+```
+
+### Authenticating Git Operations
+
+As of August 2021, GitHub no longer accepts account passwords when authenticating Git operations
+([read the announcement](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/)). This
+affects command line Git access. Use a personal access token in place of a password when authenticating to GitHub in the
+command line or with the API:
+
+```
+mike set-default --push latest
+Username: <my-username>
+Password: <my-personal-access-token>
+```
+
+Visit
+[GitHub Docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+to learn more about creating a personal access token.
