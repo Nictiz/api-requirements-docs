@@ -1,0 +1,1878 @@
+﻿
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Requirements for Application Programming Interfaces (APIs) in Dutch Healthcare.">
+      
+      
+        <meta name="author" content="Nictiz">
+      
+      
+        <link rel="canonical" href="https://nictiz.github.io/api-requirements-docs/latest/definitions-and-scope/">
+      
+      
+        <link rel="prev" href="../notational-conventions/">
+      
+      
+        <link rel="next" href="../api-specification-and-documentation/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.0">
+    
+    
+      
+        <title>Definitions and scope - API Requirements for Dutch Healthcare</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-GYNT85534L"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-GYNT85534L",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-GYNT85534L",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#definitions-and-scope" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+You're not viewing the latest version.
+<a href="../..">
+    <strong>Click here to go to latest.</strong>
+</a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="API Requirements for Dutch Healthcare" class="md-header__button md-logo" aria-label="API Requirements for Dutch Healthcare" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            API Requirements for Dutch Healthcare
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Definitions and scope
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nictiz/api-requirements-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="API Requirements for Dutch Healthcare" class="md-nav__button md-logo" aria-label="API Requirements for Dutch Healthcare" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    API Requirements for Dutch Healthcare
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nictiz/api-requirements-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notational-conventions/" class="md-nav__link">
+        Notational Conventions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Definitions and scope
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Definitions and scope
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-api" class="md-nav__link">
+    What is an API?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifications-implementations-and-deployments" class="md-nav__link">
+    Specifications, implementations, and deployments
+  </a>
+  
+    <nav class="md-nav" aria-label="Specifications, implementations, and deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-specification" class="md-nav__link">
+    API specification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-implementation" class="md-nav__link">
+    API implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-deployment" class="md-nav__link">
+    API deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-uses-an-api" class="md-nav__link">
+    Who uses an API?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-api-requirements" class="md-nav__link">
+    What are API requirements?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationship-with-dutch-health-information-standards" class="md-nav__link">
+    Relationship with (Dutch) Health Information Standards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationship-with-the-dutch-api-library-for-healthcare" class="md-nav__link">
+    Relationship with the Dutch API library for healthcare
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-lifecycle" class="md-nav__link">
+    API lifecycle
+  </a>
+  
+    <nav class="md-nav" aria-label="API lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-versioning" class="md-nav__link">
+    API versioning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    Breaking changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-breaking-changes" class="md-nav__link">
+    Non-breaking changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-software-development-kit-sdk-for-easy-access-to-apis" class="md-nav__link">
+    Using a Software Development Kit (SDK) for easy access to APIs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-protocols-and-api-styles" class="md-nav__link">
+    API protocols and API styles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-layered-typology-of-apis" class="md-nav__link">
+    A layered typology of APIs
+  </a>
+  
+    <nav class="md-nav" aria-label="A layered typology of APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-apis" class="md-nav__link">
+    System APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-apis" class="md-nav__link">
+    Process APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convenience-or-experience-apis" class="md-nav__link">
+    Convenience or experience APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consequences-for-api-design-and-specification" class="md-nav__link">
+    Consequences for API design and specification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exchange-patterns" class="md-nav__link">
+    Exchange patterns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exchange-paradigms" class="md-nav__link">
+    Exchange paradigms
+  </a>
+  
+    <nav class="md-nav" aria-label="Exchange paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messaging" class="md-nav__link">
+    Messaging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-exchange" class="md-nav__link">
+    Document exchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consequences-for-api-design-and-specification_1" class="md-nav__link">
+    Consequences for API design and specification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-and-external-api-usage" class="md-nav__link">
+    Internal and external API usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unrestricted-and-restricted-api-usage" class="md-nav__link">
+    Unrestricted and restricted API usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles-involved-with-the-development-exploitation-and-use-of-apis" class="md-nav__link">
+    Roles involved with the development, exploitation and use of APIs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-contents-of-an-api-specification" class="md-nav__link">
+    The contents of an API specification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-contents-of-api-documentation" class="md-nav__link">
+    The contents of API documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-levels-of-standardization" class="md-nav__link">
+    API levels of standardization
+  </a>
+  
+    <nav class="md-nav" aria-label="API levels of standardization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-api-standardization-level" class="md-nav__link">
+    'Open API' standardization level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technically-standardized-api-standardization-level" class="md-nav__link">
+    'Technically standardized API' standardization level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fully-standardized-api-standardization-level" class="md-nav__link">
+    'Fully standardized API' standardization level
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-requirement-categories" class="md-nav__link">
+    API requirement categories
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-specification-and-documentation/" class="md-nav__link">
+        API specification & documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-testability/" class="md-nav__link">
+        API testability
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-discoverability/" class="md-nav__link">
+        API discoverability
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-onboarding/" class="md-nav__link">
+        API onboarding
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-lifecycle-management-and-versioning/" class="md-nav__link">
+        API Lifecycle management and versioning
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-agreements/" class="md-nav__link">
+        API agreements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-design-rules/" class="md-nav__link">
+        API design rules
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-security/" class="md-nav__link">
+        API security
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../health-information-standards-compliance/" class="md-nav__link">
+        Health Information Standards compliance
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-api" class="md-nav__link">
+    What is an API?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specifications-implementations-and-deployments" class="md-nav__link">
+    Specifications, implementations, and deployments
+  </a>
+  
+    <nav class="md-nav" aria-label="Specifications, implementations, and deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-specification" class="md-nav__link">
+    API specification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-implementation" class="md-nav__link">
+    API implementation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-deployment" class="md-nav__link">
+    API deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#who-uses-an-api" class="md-nav__link">
+    Who uses an API?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-api-requirements" class="md-nav__link">
+    What are API requirements?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationship-with-dutch-health-information-standards" class="md-nav__link">
+    Relationship with (Dutch) Health Information Standards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationship-with-the-dutch-api-library-for-healthcare" class="md-nav__link">
+    Relationship with the Dutch API library for healthcare
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-lifecycle" class="md-nav__link">
+    API lifecycle
+  </a>
+  
+    <nav class="md-nav" aria-label="API lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-versioning" class="md-nav__link">
+    API versioning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    Breaking changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-breaking-changes" class="md-nav__link">
+    Non-breaking changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-software-development-kit-sdk-for-easy-access-to-apis" class="md-nav__link">
+    Using a Software Development Kit (SDK) for easy access to APIs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-protocols-and-api-styles" class="md-nav__link">
+    API protocols and API styles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-layered-typology-of-apis" class="md-nav__link">
+    A layered typology of APIs
+  </a>
+  
+    <nav class="md-nav" aria-label="A layered typology of APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-apis" class="md-nav__link">
+    System APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-apis" class="md-nav__link">
+    Process APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convenience-or-experience-apis" class="md-nav__link">
+    Convenience or experience APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consequences-for-api-design-and-specification" class="md-nav__link">
+    Consequences for API design and specification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exchange-patterns" class="md-nav__link">
+    Exchange patterns
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exchange-paradigms" class="md-nav__link">
+    Exchange paradigms
+  </a>
+  
+    <nav class="md-nav" aria-label="Exchange paradigms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messaging" class="md-nav__link">
+    Messaging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-exchange" class="md-nav__link">
+    Document exchange
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consequences-for-api-design-and-specification_1" class="md-nav__link">
+    Consequences for API design and specification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-and-external-api-usage" class="md-nav__link">
+    Internal and external API usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unrestricted-and-restricted-api-usage" class="md-nav__link">
+    Unrestricted and restricted API usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles-involved-with-the-development-exploitation-and-use-of-apis" class="md-nav__link">
+    Roles involved with the development, exploitation and use of APIs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-contents-of-an-api-specification" class="md-nav__link">
+    The contents of an API specification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-contents-of-api-documentation" class="md-nav__link">
+    The contents of API documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-levels-of-standardization" class="md-nav__link">
+    API levels of standardization
+  </a>
+  
+    <nav class="md-nav" aria-label="API levels of standardization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-api-standardization-level" class="md-nav__link">
+    'Open API' standardization level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technically-standardized-api-standardization-level" class="md-nav__link">
+    'Technically standardized API' standardization level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fully-standardized-api-standardization-level" class="md-nav__link">
+    'Fully standardized API' standardization level
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-requirement-categories" class="md-nav__link">
+    API requirement categories
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/nictiz/api-requirements-docs/blob/main/docs/definitions-and-scope.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/nictiz/api-requirements-docs/raw/main/docs/definitions-and-scope.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="definitions-and-scope">Definitions and scope</h1>
+<h2 id="what-is-an-api">What is an API?</h2>
+<p>The term 'API' refers to both a formal specification and a piece of software conforming to that specification. Both
+perspectives are used interchangeably, but although an API specification can exist without its actual implementation in
+software, the reverse is not possible. On the other hand, a specification without any implementation in actual software
+does not (yet) represent real value. A third possible perspective is the deployment perspective. In this case an API can
+be viewed as a service that is deployed by some organization to provide specific value for its clients.</p>
+<p>No matter the perspective, the purpose of an API is to allow two or more applications to 'talk to each other'. These
+applications can be located on the same 'machine', or they can be on different remote machines, connected through some
+kind of network using some kind of communication technology.</p>
+<h2 id="specifications-implementations-and-deployments">Specifications, implementations, and deployments</h2>
+<p>Due to the different perspectives on what an API is, this specification differentiates between API specifications, API
+implementations and API deployments.</p>
+<h3 id="api-specification">API specification</h3>
+<p>An API specification is a formal specification of the API. The specification can be used to construct an API
+implementation (software) that complies with the specification. It can also be used to develop an API client (more
+software) that uses the implementation. The API specification can be viewed as a contract between the API implementation
+and an API client.</p>
+<h3 id="api-implementation">API implementation</h3>
+<p>An API implementation is the software code that implements the specification. It is (part of) a specific software
+product created by a specific software developer (organization).</p>
+<h3 id="api-deployment">API deployment</h3>
+<p>An API deployment is an instance of the software; the actual service deployed by some organization to provide value
+for its clients. A specific deployment has a specific endpoint address (a URL in most modern APIs) that API clients use
+to access the API implementation.</p>
+<h2 id="who-uses-an-api">Who uses an API?</h2>
+<p>API specifications are used by a 'competent developer' to create an API implementation or an API client. A competent
+developer is a software developer that has experience using the technologies and (healthcare-specific) standards the API
+exploits and has basic knowledge of the healthcare domain in general and the specific value the API provides.</p>
+<p>API implementations are used by API clients. Both are pieces of software that need to 'talk to each other'.</p>
+<p>API deployments are used by API client deployments and form a 'service provider'/'service consumer' pair.</p>
+<h2 id="what-are-api-requirements">What are API requirements?</h2>
+<p>API requirements are requirements for specifying (API specifications), implementing (API implementations), deploying
+(API deployments) and using (API clients) an API. In this specification the following conventions are applied when
+formulating requirements:</p>
+<ul>
+<li>An API requirement <strong>SHOULD</strong> not overlap with existing rules and regulations. Compliance with rules and regulations
+  is assumed.</li>
+<li>Even more important, it <strong>MUST NOT</strong> contradict existing rules and regulations.</li>
+<li>It <strong>SHOULD</strong> be reasonably possible to apply to API requirements. A requirement should not require the impossible.</li>
+</ul>
+<p>Many requirements have sub-requirements that conform to the same conventions.</p>
+<p>Whenever possible, requirements in this specification are based on or refer to (inter)national requirements and
+policies, such as the Dutch National API strategy and national API design rules, international standards and RFCs and
+policies like the
+<a href="https://www.england.nhs.uk/wp-content/uploads/2018/09/open-api-policy.pdf">NHS Open API Architecture Policy</a>.</p>
+<h2 id="relationship-with-dutch-health-information-standards">Relationship with (Dutch) Health Information Standards</h2>
+<p>According to the Dutch competence centre for electronic exchange of health and care information (Nictiz), a Health
+Information Standard is a cohesive specification of:</p>
+<ul>
+<li>A use case or a combination of use cases and interaction patterns</li>
+<li>Dataset(s) used within these interactions</li>
+<li>Information models such as HCIMs (Dutch 'Zorg Informatie Bouwstenen' or ZIBs)</li>
+<li>Terminologies</li>
+<li>Communication standards such as <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">HL7 CDA</a> and
+  <a href="https://hl7.org/fhir/">HL7 FHIR</a> (profiles)</li>
+</ul>
+<p>As such, a Health Information Standard does not include technical details that are necessary ingredients of an API
+specification, such as:</p>
+<ul>
+<li>API signature and semantics</li>
+<li>Identification and authentication of entities</li>
+<li>Security and transport mechanisms such as addressing</li>
+<li>Other required technical parts of an API specification and API documentation as described in
+<a href="#the-contents-of-an-api-specification">The contents of an API specification</a> and
+<a href="#the-contents-of-api-documentation">The contents of API documentation</a></li>
+</ul>
+<p>However, many APIs implement (parts of) Health Information Standards. An API is said to 'implement a Health Information
+Standard' when its specification, implementation and deployment comply with the requirements of that Health Information
+Standard.</p>
+<h2 id="relationship-with-the-dutch-api-library-for-healthcare">Relationship with the Dutch API library for healthcare</h2>
+<p>The Dutch API library for healthcare contains API specifications, implementations and deployments that meet the
+requirements in this specification at a particular level of standardization (see
+<a href="#api-levels-of-standardization">API levels of standardization</a>). The API library promotes the findability of APIs that
+meet the requirements in this specification.</p>
+<h2 id="api-lifecycle">API lifecycle</h2>
+<p>The API lifecycle consists of four phases:</p>
+<ul>
+<li><strong>Create</strong>: developing the API specification and implementation</li>
+<li><strong>Deploy</strong>: Deploying the API so it can be used by API clients</li>
+<li><strong>Deprecate</strong>: Mark the API specification, implementation, or deployment as being removed at a future date</li>
+<li><strong>Retire</strong>: remove the API specification, implementation and/or deployment</li>
+</ul>
+<p>When developing (Create) an API, especially an API specification targeted at the highest level of standardization (see
+<a href="#api-levels-of-standardization">API levels of standardization</a>), it is important to include the viewpoints and insights
+of all stakeholders. API development is therefore often considered to be a community effort.</p>
+<p>It is important to mitigate the effects of API changes on API clients. Mitigation includes clear communication when
+deprecating and retiring an API, but also includes preventing client applications from breaking due to changes to a
+deployed API.</p>
+<p>This specification includes requirements for all phases of the API lifecycle and includes requirements for lifecycle
+management and API versioning.</p>
+<h3 id="api-versioning">API versioning</h3>
+<p>Updating an API's version is an important measure to help API clients adapt to API changes. Most APIs use the
+<a href="https://semver.org/">Semantic Versioning</a> (SemVer) scheme and update the API's major version when introducing breaking
+changes. Non-breaking changes to the API are often reflected by an update in the API's minor version or patch version.</p>
+<h3 id="breaking-changes">Breaking changes</h3>
+<p>A breaking change to an API is any change that can break a client application. Usually, breaking changes involve
+modifying or deleting existing parts of an API or adding new required parts. A breaking change can take place in an API
+specification, API implementation and in an API deployment.</p>
+<p>Examples of breaking changes are:</p>
+<ul>
+<li>Deleting a resource or operation</li>
+<li>Removing an allowed parameter, request field or response field</li>
+<li>Modifying a resource or method URI</li>
+<li>Modifying a field name</li>
+<li>Adding required query parameters without default values</li>
+<li>Introducing a new validation</li>
+<li>Modifying authorization</li>
+<li>Modifying rate-limiting</li>
+<li>Removing TLS (Transport Layer Security) versions or supported encryption methods</li>
+<li>Modifying data formats, encodings, or compression formats</li>
+</ul>
+<p>If the intended functionality of an API (method) changes, this might also break the client application and therefore it
+is considered a breaking change. For example, if a DELETE request previously used to archive a resource but now hard
+deletes the resource, the change potentially breaks client functionality that is supposed to archive a resource.</p>
+<p>Breaking changes should be avoided whenever possible.</p>
+<h3 id="non-breaking-changes">Non-breaking changes</h3>
+<p>Non-breaking changes are changes that cannot be expected to break a client application. Adding optional parts to an API
+is never considered a breaking change. Examples of non-breaking changes are:</p>
+<ul>
+<li>Addition of new endpoints</li>
+<li>Addition of new resources or operations to existing endpoints</li>
+<li>Addition of new fields in the following scenarios:<ul>
+<li>New fields in responses</li>
+<li>New optional request fields or parameters</li>
+<li>New required request fields that have default values</li>
+</ul>
+</li>
+<li>Addition of optional query parameters</li>
+<li>Changes to the order of fields returned within a response</li>
+<li>Addition of an optional request header</li>
+<li>Removal of redundant request header</li>
+<li>Changes to the overall response size</li>
+<li>Changes to error messages</li>
+</ul>
+<p>Requirement LM007 states that API clients MUST be designed to handle non-breaking changes.</p>
+<h2 id="using-a-software-development-kit-sdk-for-easy-access-to-apis">Using a Software Development Kit (SDK) for easy access to APIs</h2>
+<p>While APIs can be consumed using any platform or programming language, Software Development Kits make it easier to
+access APIs from a particular platform and/or language of choice. An SDK is usually made up of one or more software
+libraries, tools, and documentation. For example, Microsoft provides SDKs for accessing Azure APIs from several
+different platforms, including iOS, Android, JavaScript, and .NET. Another example is the Facebook SDK for integrating
+Facebook features in games built on the Unity platform.</p>
+<p>This specification does not require the provision or use of an SDK to access an API. Nevertheless, this specification
+does include requirements in case an SDK is provided.</p>
+<h2 id="api-protocols-and-api-styles">API protocols and API styles</h2>
+<p>This document specifies requirements for APIs that are built on top of the HTTP protocol. HTTP, or Hyper Text Transfer
+Protocol, is the protocol that fuels the World Wide Web. It is a high-level protocol that provides mechanisms for
+communication between clients and servers with requests and responses. The best-known HTTP client is a web browser that
+is used to communicate with web servers, requesting data and web pages from web servers or sending user input to web
+servers.</p>
+<p>The reason for restricting this specification to HTTP-based APIs is threefold:</p>
+<ol>
+<li>The world has been transitioning to the use of HTTP-based APIs ever since the web 2.0 era at the beginning of the
+  21st century. Therefore most modern API technologies that are based on the HTTP protocol and legacy technologies, such
+  as CORBA and DCOM, are slowly but surely disappearing from the global arena.</li>
+<li>As a result of this, many (if not most) standards for secure communication are based on or are working in accordance
+  with the HTTP protocol. Examples are the numerous RFCs for authorization (like OAuth 2.0) and authentication (like 
+  OpenID Connect), as well as stacks of security protocols such as WS-Security. Other examples include HTTP-header based
+  content negotiation schemes and protocols for distributed identity management such as the Verifiable Credentials HTTP
+  API.</li>
+<li>Modern development tools (as well as developer training materials) are optimized for building applications that
+  leverage the HTPP protocol and the various design patterns and protocols that work with HTTP or are built on top of
+  HTTP.</li>
+</ol>
+<p>APIs that use the HTTP protocol are often referred to as WEB APIs. WEB APIs are used to communicate between applications
+over the internet but can also be used for communication over private networks or even between applications on the same
+machine. WEB APIs are often divided into two groups: SOAP-based APIs and RESTful APIs. SOAP is a protocol on top of HTTP
+(amongst others) while REST is an architectural style that leverages plain HTTP commands (verbs) for communication
+between the API client and the API server. SOAP is often associated with the WEB 1.0 era while today's modern WEB APIs
+are edging towards the REST architectural style. Nevertheless, both SOAP-based APIs and RESTful APIs coexist and many
+existing and successful initiatives for health information exchange are based on SOAP APIs. Newer WEB API technologies
+and styles, like GraphQL and gRPC, are rising constantly.</p>
+<p>This specification strives to provide requirements that apply to all flavours of WEB APIs. However, its focus will be on
+REST APIs simply because of its growing popularity in Health IT. For example, the popular HL7 FHIR API specification is
+based on the REST architectural style.</p>
+<h2 id="a-layered-typology-of-apis">A layered typology of APIs</h2>
+<p>It is common to differentiate between three categories of APIs: system APIs, process APIs and convenience or experience
+APIs. The <a href="https://docs.geostandaarden.nl/api/API-Strategie/">Dutch API strategy</a> uses this differentiation which was
+originally proposed by <a href="https://www.mulesoft.com/resources/api/types-of-apis">MuleSoft</a>. This differentiation is based
+on design principles like 'separation of concerns' and the need for reusability of specifications and software
+components such as APIs.</p>
+<h3 id="system-apis">System APIs</h3>
+<p>System APIs are atomic APIs. They expose 'raw' access to data and functionality from a system of record. They cannot be
+divided into smaller parts without losing usefulness and meaningfulness: you cannot create a meaningful API that exposes
+the first half of a medical diagnosis or one that creates an outpatient appointment for a particular date without
+specifying the time. Often, System APIs are exposed for internal use only (see 'Internal and external API usage'). API
+specifications for System APIs should not be specific to a particular business purpose or 'use case'. Neither should
+they be specific to a particular type of user or a particular type of system.</p>
+<p>In healthcare, system APIs provide access to specific data and functionalities in systems like electronic health
+records, medical imaging systems, Hospital Information Systems, and many others. Many FHIR resources can be used to
+standardize system APIs. FHIR resource specifications do not define authorization/access control or the authentication
+of users and clients, which allows them to be used in many different use cases for several types of users.</p>
+<h3 id="process-apis">Process APIs</h3>
+<p>Process APIs provide a means of combining data and orchestrating multiple system APIs for a specific business purpose.
+Note that process APIs can combine system APIs from a single backend system but also from a variety of backend systems.</p>
+<p>In healthcare, the difference between system APIs and process APIs becomes clear when you consider that many healthcare
+business processes require the combining of data and/or functionality from different systems. For example, transferring
+a patient from a hospital to a homecare provider often requires combining data from different systems, such as an EHR
+(Electronic Health Record) system and a PACS system amongst others. A process API that supports the transfer process
+(for example based on the Dutch eOverdracht specification) uses the system APIs of these 'systems of record' to expose
+a single coherent dataset to the API client.</p>
+<p>The latter being a system deployed by (or on behalf of) the homecare provider. Process API specifications for healthcare
+often define specific methods for authenticating clients/users and define specific authorization/access control methods.</p>
+<h3 id="convenience-or-experience-apis">Convenience or experience APIs</h3>
+<p>The third category of APIs, convenience APIs or experience APIs, are tailored to a specific kind of usage. For
+example, an experience API could be tailored to mobile devices and provide mobile-friendly ways of formatting and
+paginating data. Experience APIs use System APIs or process APIs but format the output in such a way that it caters to
+the needs of a specific (type of) API client.</p>
+<p>In healthcare, experience APIs are often representations of business data and/or functionality to a specific Healthcare
+Information Exchange (HIE) standard, such as a FHIR, or IHE XDS. For example, the previous 'eOverdracht' transfer
+example could be expressed using two experience APIs: one based on FHIR notifications and compositions and the other on
+IHE DSUB notifications and XDS document exchange.</p>
+<p>This specification covers all types of APIs and sets out requirements for reusing APIs of a lower layer.</p>
+<h3 id="consequences-for-api-design-and-specification">Consequences for API design and specification</h3>
+<p>The layered approach to APIs has consequences for API design and specification in healthcare. Specifications of APIs
+that support transferring patients (process APIs), should reuse systemlevel API specifications that provide access to
+specific data. API standards for transferring patients should reuse pre-existing API standards for accessing atomic
+data, such as atomic FHIR resources.</p>
+<p>API specifications for a specific (type of) client system, such as a FHIR client, should be harmonized with existing
+specifications for process APIs.</p>
+<h2 id="exchange-patterns">Exchange patterns</h2>
+<p>APIs can be used to PUSH data from a client to a server or to PULL data from a server by a client. PUSH and PULL are
+examples of 'exchange patterns'. Other examples are the NOTIFY-PULL pattern (server notifies the client using an API
+exposed by the client after which the client pulls data from the server using an API exposed by the server) and the
+BROADCAST pattern (server broadcasts data to all clients that are interested in receiving that data).</p>
+<p>This specification strives to provide requirements that are applicable to all possible exchange patterns.</p>
+<h2 id="exchange-paradigms">Exchange paradigms</h2>
+<p>It is common to differentiate between four different paradigms for exchanging data between systems: operations,
+messaging, exchanging documents and exposing resources.</p>
+<h3 id="operations">Operations</h3>
+<p>The operations paradigm, or Remote Procedure Call (RPC) paradigm, allows a client to execute some code on a server by
+passing it the operation name and required (and optional) arguments. After processing the code, the server returns some
+content to the client. The content can be anything, from a stream of data to a static document (see document paradigm)
+or a single scalar value. The SOAP protocol is designed around the operations paradigm.</p>
+<h3 id="messaging">Messaging</h3>
+<p>Messaging is associated with the 'PUSH' exchange pattern and facilitates automated transactions between systems. System
+A sends a message to System B with a specific intention and just enough information to justify that intention.
+Interaction typically occurs without human interaction: a message invokes a state change (such as a workflow state
+change or changing specific data) within a target system. Typical examples in healthcare are HL7v2 messages and FHIR
+messages.</p>
+<h3 id="document-exchange">Document exchange</h3>
+<p>Document exchange is of value in healthcare IT. A document is created by an author and represents a snapshot of
+available information at a specific time and place: documents are 'stable'. A document can be (digitally) signed by a
+human, stating that the document is approved by its 'verifier'. A document is first and foremost intended for human
+consumption (even if it's exchanged by electronic means), but it can be processed by automated systems and automated
+decisions can be based on its contents, especially if the document has a standardized and machine-readable (structured)
+format. Note that the document paradigm can be combined with the operation, messaging and resource paradigms, because
+documents can be the result of an operation, can be transmitted through a message and can be requested from a
+'documents' resource.</p>
+<p>In (Dutch) healthcare, documents have significant value in exchanging data between healthcare organizations. A document
+can be used to send data between healthcare organizations in accordance with the Dutch WGBO regulation: a healthcare
+professional transmits specific data (the document) to a specific healthcare provider with a specific purpose (e.g., a
+transfer or consultation) in accordance with healthcare quality standards or best practices. In such cases data can be
+transmitted without the specific consent of the patient.</p>
+<h3 id="resources">Resources</h3>
+<p>As opposed to documents, resources are dynamic. A resource exposes data in response to a specific request and its
+content changes over time and is dependent on the specifics of the request. Resources are often associated with the PULL
+and NOTIFY PULL exchange patterns, because a dynamic resource can't be PUSHED to another system. In healthcare, FHIR
+resources are the most popular example of the resource paradigm. Because of their dynamic nature, exchange of resources
+across organizations often requires specific consent of the patients concerned.</p>
+<p>This specification covers all four paradigms and sets out requirements for when to use which paradigm.</p>
+<h3 id="consequences-for-api-design-and-specification_1">Consequences for API design and specification</h3>
+<p>Different paradigms are suitable for different scenarios. API design and specification should consider that APIs
+designed using the resource paradigm make the API client responsible for defining the content of the data exposed by the
+API. The resource paradigm is very flexible from the perspective of the consumer (the API client) but consequently, the
+healthcare organization responsible for the data has less control over what data is exchanged in what situation.</p>
+<h2 id="internal-and-external-api-usage">Internal and external API usage</h2>
+<p>Many policies, like the <a href="https://docs.geostandaarden.nl/api/API-Strategie/">Dutch API strategy</a> and the
+<a href="https://www.england.nhs.uk/wp-content/uploads/2018/09/open-api-policy.pdf">NHS Open API Architecture Policy</a>,
+distinguish between internal and external APIs. Indeed, European and Dutch regulations do impose such a distinction but
+distinguishing internal from external APIs might not always be easy and has nothing to do with technology.</p>
+<p>Processing personal data is always subject to privacy regulations such as the European GDPR (General Data Protection
+Regulation). When data is exchanged between organizations, special rules apply. These rules depend on the relationship
+between those organizations, like the relationship between a (GDPR) 'data controller' and 'data processor'. 'Internal'
+and 'External' are not a property of the APIs themselves but indicate different use of (sometimes the same) APIs.
+Although different intended uses may affect API design, our approach is to treat internal or external API design alike
+as much as possible.</p>
+<p>In this specification 'internal API usage' is restricted to data exchange within a single data controller. 'External API
+usage' on the other hand, covers the exchange of data (using APIs) between data controllers (and their respective data
+processors). External API usage is subject to special regulations such as the Dutch Wabvz and the Dutch
+<a href="https://www.nen.nl/nen-7512-2022-nl-297137">NEN 7512</a> standard.</p>
+<p>This specification covers both internal and external APIs.</p>
+<h2 id="unrestricted-and-restricted-api-usage">Unrestricted and restricted API usage</h2>
+<p>APIs can be used to provide unrestricted access to data and functionality. These kinds of APIs don't require
+authorization to access API functionality and/or data and hence don't need to know the identity of the person or
+organization using the API. APIs that provide unrestricted use are sometimes referred to as 'Anonymous APIs' or as 'Open
+Data APIs'.</p>
+<p>Especially in healthcare, most APIs expose (sensitive) personal data and hence do require authorization. These APIs
+restrict access to data and/or functionality to specific applications, organizations and/or users. Hence, they need to
+identify and authenticate API users. This is called 'restricted usage'. APIs that provide 'restricted usage' are
+sometimes referred to as 'identified APIs'.</p>
+<p>In real life, even APIs that provide unrestricted use to end-users during operation, do have some restrictions in place
+that apply to developers. For many APIs special onboarding procedures are in place. Only after onboarding are developers
+provided with a so-called API key that gives them (their software) access to the API. This allows the organization that
+provides the API to prevent (deliberate or undeliberate) misuse. It also allows for better statistical analysis of API
+use.</p>
+<p>This specification covers both the restricted and unrestricted usage of APIs.</p>
+<h2 id="roles-involved-with-the-development-exploitation-and-use-of-apis">Roles involved with the development, exploitation and use of APIs</h2>
+<p>APIs are created by developers and are consumed by software created by (other) developers. Sometimes the party
+responsible for creating and maintaining an API is also responsible for deploying the API. At other times, the
+development and deployment roles are fulfilled by different parties. The same is true for API clients. Sometimes systems
+that consume an API, so-called API clients, are developed and deployed by one party, sometimes different parties are
+responsible for developing and deploying an API client system.</p>
+<p>Most of the time, the party responsible for developing an API is also responsible for specifying the API. In the case of
+standard APIs, such as the Dutch MedMij APIs, specifications for APIs are the responsibility of a (National) standards
+body or 'API specifier', in this case Nictiz. Sometimes, the API specifier is also responsible for verifying API
+conformance to the specification, sometimes designated 'API conformance verifiers' (such as notified bodies) fulfil such
+a role.</p>
+<p>Because separate roles have different responsibilities throughout the lifecycle of an API, most API requirements are
+specific to a role. This specification recognizes nine roles involved with the creation, deployment and use of APIs. The
+following diagram sets out these nine roles.</p>
+<p><img alt="Roles involved with specification, creation, deployment and use of APIs." src="../assets/images/diagram-api-roles.png" /></p>
+<p>Each role is briefly introduced in the following table. Requirements in this specification are assigned to one or more
+roles through the 'applicable roles' attribute of each requirement.</p>
+<table>
+<thead>
+<tr>
+<th>API role</th>
+<th>Responsibilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API client deployer</td>
+<td>Technical responsibilities for employing an API, as deployed by the API server deployer, and specified by the API specifier, thus implementing the final responsibilities of the API user</td>
+</tr>
+<tr>
+<td>API client developer</td>
+<td>Technical responsibilities for supplying software for the API client deployer</td>
+</tr>
+<tr>
+<td>API infrastructure</td>
+<td>Technical responsibilities for conveying specified APIs between API clients and API servers</td>
+</tr>
+<tr>
+<td>API logical designer</td>
+<td>Responsibilities for logically specifying both data and the operations to be implemented in the API</td>
+</tr>
+<tr>
+<td>API provider</td>
+<td>End responsibilities for providing the value and meaning of an API, as agreed with API users</td>
+</tr>
+<tr>
+<td>API server deployer</td>
+<td>Technical responsibilities for deploying an API, as specified by an API specifier, thus implementing the end responsibilities of the API provider</td>
+</tr>
+<tr>
+<td>API server developer</td>
+<td>Technical responsibilities for supplying software for the API server deployer</td>
+</tr>
+<tr>
+<td>API specifier</td>
+<td>Responsibilities for technically specifying the API so that an API server deployer knows what to deploy and an API client knows what to employ</td>
+</tr>
+<tr>
+<td>API user</td>
+<td>End responsibilities for using the value and meaning of an API, as agreed with the API provider</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-contents-of-an-api-specification">The contents of an API specification</h2>
+<p>An API specification MUST contain enough information for a competent developer to create an API implementation or an API
+client without further information. This includes:</p>
+<ol>
+<li><strong>Identification and authentication of people, organizations, and machines</strong>
+  This does not only apply to the technical standards and specifics used to authenticate entities but also to the
+  identifying attributes that are used and how to obtain and secure them to create a network of trust.</li>
+<li><strong>Authorization/access control</strong>
+  This does not only apply to the technical standards and specifics used to authorize access to APIs, but also to the
+  semantics of access tokens and requests for access tokens, such as the permitted values for permissions
+  (<a href="https://oauth.net/2/">OAuth 2</a> scopes) and expiration requirements.</li>
+<li><strong>Protecting integrity and confidentiality</strong>
+  This applies to any specifics on protecting integrity and confidentiality at both transport and message levels,
+  including specifics on the cryptographic algorithms, key distribution and PKIs used.</li>
+<li><strong>Addressing</strong>
+  This applies to specifics on addressing API endpoints and mechanisms used to distribute (updates to) addresses.</li>
+<li><strong>Content encoding</strong>
+  This applies to specifics on content encoding such as the compression algorithms used and character encoding.</li>
+<li><strong>Content formatting</strong>
+  Specifics on content formatting such as the use of MTOM/XOP and BSON but also healthcare-specific (data) formats.</li>
+<li><strong>Exchange patterns and exchange paradigms used</strong></li>
+<li><strong>API signature and semantics</strong>
+  All actions (methods) that are available through the API MUST be covered, as well as the legitimate data structures
+  return (error) codes (the API signature), Including a full specification of all API requests and responses.</li>
+<li><strong>Use cases</strong>
+  How to (and how not to) use the API in specific use cases.</li>
+<li><strong>References to other specifications</strong>
+  Most specifications reuse other specifications such as RFCs created by <a href="https://www.ietf.org/">IETF</a> or
+  <a href="https://www.w3.org/">W3C</a> or Dutch information standards created by <a href="https://nictiz.nl/">Nictiz</a>.</li>
+</ol>
+<p>Creating and maintaining the API specification is the responsibility of the API specifier role.</p>
+<h2 id="the-contents-of-api-documentation">The contents of API documentation</h2>
+<p>API documentation includes, but is not limited to, the API specification. Other important parts of API documentation
+include:</p>
+<ul>
+<li>How to obtain and use test tooling</li>
+<li>API onboarding and access policies</li>
+<li>Usage restrictions and guidelines</li>
+<li>Service level agreements</li>
+<li>Technical specifics for a particular deployment, such as the use of private networks instead of public internet</li>
+<li>Addresses of API endpoints</li>
+</ul>
+<p>These parts of API documentation are the responsibility of the API server deployer. In many cases, the API server
+deployer works together with the API server developer or refers to documentation the API server developer supplies.</p>
+<h2 id="api-levels-of-standardization">API levels of standardization</h2>
+<p>Almost all APIs are based on standards such as communication standards (like the HTTP standard) and formatting standards
+such as XML. Nevertheless, many APIs use different communication technologies, different documentation formats and
+testing tools, different methods for discoverability, different data formats, unique styles and patterns and different
+'content', for what seems to be similar functionality and purpose. These differences complicate the use of APIs.</p>
+<p>This specification provides requirements for APIs with various levels of standardization. Even at the lowest level of
+standardization, the 'Open API level', requirements are set out that harmonize API design, development, deployment, and
+usage. At the middle level, the 'Technically standardized level', requirements aim at achieving technical harmonization
+while at the highest level, the 'Fully standardized level', requirements aim at achieving software interoperability.</p>
+<p>Requirements in this specification are assigned to one or more levels of standardization through the 'applicable levels'
+attribute of each requirement. Valid values for this attribute are 'OA' (Open API), 'TSA' (Technically Standardized) and
+'FSA' (Fully Standardized).</p>
+<h3 id="open-api-standardization-level">'Open API' standardization level</h3>
+<p>The <a href="https://www.england.nhs.uk/wp-content/uploads/2018/09/open-api-policy.pdf">NHS Open API Architecture Policy</a> uses
+the following definition of 'Open APIs':</p>
+<blockquote>
+<p>'Open APIs are those APIs that have been exposed to enable other systems to interact with that system, and those APIs
+have been sufficiently documented so that the available functionality is discoverable, fit for purpose and re-usable.'</p>
+</blockquote>
+<p>This specification embraces the NHS definition of 'Open APIs'. It is important to disambiguate from the
+<a href="https://www.openapis.org/">OpenAPI Initiative</a> (formerly Swagger) that standardizes how APIs are described.</p>
+<p>At the 'Open API' level, the only technical requirements are that:</p>
+<ul>
+<li>APIs are based on the HTTP communication protocol (see API protocols and styles)</li>
+<li>APIs use common and state-of-the-art technologies and standards</li>
+<li>APIs comply to common security and privacy guidelines and regulations</li>
+</ul>
+<p>Other than that, API developers are free to use the technology of their choice and are free to create APIs using their
+own data formats and 'content'. Even the purpose of these 'Open APIs' is defined by the organization creating them.</p>
+<p>Requirements at this level aim to increase reusability, discoverability and quality, without restricting APIs to
+specific technical and/or semantical standards. This preserves agility and increases the speed at which APIs become
+available to API users and innovators, while at the same time providing some level of harmonization and transparency.
+Typical requirements at this level concern (transparency of) documentation, testability and onboarding procedures.</p>
+<h3 id="technically-standardized-api-standardization-level">'Technically standardized API' standardization level</h3>
+<p>Requirements at this level aim to increase the technical harmonization of APIs. Examples of requirements at this level
+are design rules, requirements for versioning and lifecycle management, security requirements, formatting requirements
+and transport requirements.</p>
+<p>Many of these requirements reflect a technical choice, such as using JSON, BSON or XML. Other examples include the
+compression methods that are allowed (such as GZIP and DEFLATE or the less common LZ4), what security models and
+standards are allowed (such as OAuth 2 and WS-Security) and what cryptographic methods are allowed for assuring
+confidentiality and integrity.</p>
+<p>In Dutch Healthcare, no single party has the authority to enforce these kinds of choices and many technical choices and
+standards coexist. This specification aims to harmonize technical choices by referring to specific (inter)nationally
+recognized standards, guidelines and best practices. Sources for these references may include, but are not limited to:</p>
+<ul>
+<li>W3C standards</li>
+<li>Internet Engineering TaskForce (IETF) RFCs</li>
+<li>OASIS standards</li>
+<li>International health-IT standardization efforts and standards such as HL7 and IHE</li>
+<li>The Dutch National Cyber Security Centre (NCSC) security guidelines</li>
+<li>Dutch NEN norms</li>
+<li>Dutch 'afsprakenstelsels' such as MedMij</li>
+<li>Technical agreements between health-IT industry partners such as made by the Dutch Taskforce Samen Vooruit (TSV, now
+part of NLDigital) and the NUTS foundation</li>
+</ul>
+<p>For an API to comply with the requirements at this level it MUST also comply with the requirements at the 'Open API'
+standardization level.</p>
+<h3 id="fully-standardized-api-standardization-level">'Fully standardized API' standardization level</h3>
+<p>Requirements at this level aim to increase software interoperability by setting requirements for standardizing all parts
+of APIs.</p>
+<p>In Dutch Healthcare, no single party is designated to approve API standards. However, many national and international
+organizations are concerned with developing API specifications and testing their implementations. Examples of such
+organizations include, but are not limited to, the Royal Netherlands Standardization Institute 'NEN', the Dutch MedMij
+foundation, the international HL7, IHE and openEHR foundations and the Dutch NUTS community.</p>
+<p>An API is fully standardized when:</p>
+<ul>
+<li>Its complete specification is approved as a standard by a standardization organization</li>
+<li>Its implementation is verified by that organization during a formal test or qualification process</li>
+</ul>
+<p>Because different standardization organizations can create different standards for the same purpose and use case, 'fully
+standardized' does not equal 'the only allowed way of doing things'. However, all members of the standardization
+organization approve the API specification and promote its implementation in real life systems. The Dutch API library
+for healthcare will include 'competing' fully standardized APIs from different standardization organizations, as long
+as:</p>
+<ul>
+<li>They fulfil the requirements for fully standardized APIs</li>
+<li>Their organizations are supported by a substantial number of Health IT stakeholders, such as Health IT vendors and/or
+  healthcare providers</li>
+<li>Their organizations provide a formal test- or qualification process for API implementations, such as the IHE
+  connectathon and the Nictiz MedMij qualification tests</li>
+</ul>
+<p>In exceptional cases, the Dutch government can force the use of specific standards, such as API standards. The upcoming
+Wegiz legislation provides the Dutch government with the means to force the use of specific standards for information
+exchange, including the use of specific fully standardized APIs. Other means to promote the use of specific fully
+standardized APIs above others are enforcing their use through common purchasing conditions.</p>
+<p>For an API to comply with the requirements at this level it MUST also comply with the requirements at the 'Open API' and
+'Technically standardized' standardization levels.</p>
+<h2 id="api-requirement-categories">API requirement categories</h2>
+<p>All requirements in this specification fall under a specific category. This specification recognizes nine requirement
+categories:</p>
+<ul>
+<li>API specification &amp; documentation</li>
+<li>API security</li>
+<li>API lifecycle management &amp; versioning</li>
+<li>API Design Rules</li>
+<li>API testability</li>
+<li>API onboarding</li>
+<li>API agreements</li>
+<li>API discoverability</li>
+<li>Health Information Standards compliance</li>
+</ul>
+<p>Some categories contain requirements on a particular level of standardization (such as the 'Open API standardization
+level'), others contain requirements on two or even all standardization levels.</p>
+<p><img alt="Levels of standardization and requirement categories." src="../assets/images/table-api-requirement-categories.png" /></p>
+<p><em>Levels of standardization and requirement categories. Blue cells indicate the availability of requirements for a
+particular level and category combination.</em></p>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6fE2LxSBPYYKa-qFGkCOp265BpPPuQIq4l0w8NWqXeUKyGg/viewform?entry.816166561=/definitions-and-scope/" target="_blank" rel="noopener">telling us what you're missing</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../notational-conventions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notational Conventions" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Notational Conventions
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../api-specification-and-documentation/" class="md-footer__link md-footer__link--next" aria-label="Next: API specification &amp; documentation" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                API specification & documentation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Nictiz | <a href="#__consent">Change cookie settings</a> | <a href="https://nictiz.nl/privacy-statement" target="_blank" rel="noopener">Privacy statement</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/nictiz/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.view", "content.action.edit"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ce72ebac.min.js"></script>
+      
+    
+  </body>
+</html>

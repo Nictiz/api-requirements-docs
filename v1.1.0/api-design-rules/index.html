@@ -1,0 +1,2561 @@
+﻿
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Requirements for Application Programming Interfaces (APIs) in Dutch Healthcare.">
+      
+      
+        <meta name="author" content="Nictiz">
+      
+      
+        <link rel="canonical" href="https://nictiz.github.io/api-requirements-docs/latest/api-design-rules/">
+      
+      
+        <link rel="prev" href="../api-agreements/">
+      
+      
+        <link rel="next" href="../api-security/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.0">
+    
+    
+      
+        <title>API design rules - API Requirements for Dutch Healthcare</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.402914a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-GYNT85534L"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-GYNT85534L",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-GYNT85534L",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-design-rules" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+You're not viewing the latest version.
+<a href="../..">
+    <strong>Click here to go to latest.</strong>
+</a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="API Requirements for Dutch Healthcare" class="md-header__button md-logo" aria-label="API Requirements for Dutch Healthcare" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            API Requirements for Dutch Healthcare
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API design rules
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nictiz/api-requirements-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="API Requirements for Dutch Healthcare" class="md-nav__button md-logo" aria-label="API Requirements for Dutch Healthcare" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    API Requirements for Dutch Healthcare
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nictiz/api-requirements-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notational-conventions/" class="md-nav__link">
+        Notational Conventions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../definitions-and-scope/" class="md-nav__link">
+        Definitions and scope
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-specification-and-documentation/" class="md-nav__link">
+        API specification & documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-testability/" class="md-nav__link">
+        API testability
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-discoverability/" class="md-nav__link">
+        API discoverability
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-onboarding/" class="md-nav__link">
+        API onboarding
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-lifecycle-management-and-versioning/" class="md-nav__link">
+        API Lifecycle management and versioning
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-agreements/" class="md-nav__link">
+        API agreements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API design rules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        API design rules
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-with-national-api-design-rules" class="md-nav__link">
+    Compliance with national API design rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generic" class="md-nav__link">
+    Generic
+  </a>
+  
+    <nav class="md-nav" aria-label="Generic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dr001-interfaces-must-be-defined-in-english" class="md-nav__link">
+    DR001: Interfaces MUST be defined in English
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr002-developers-must-only-apply-standard-http-methods" class="md-nav__link">
+    DR002: Developers MUST only apply standard HTTP methods
+  </a>
+  
+    <nav class="md-nav" aria-label="DR002: Developers MUST only apply standard HTTP methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr003-developers-must-adhere-to-http-safety-and-idempotency-semantics-for-operations" class="md-nav__link">
+    DR003: Developers MUST adhere to HTTP safety and idempotency semantics for operations
+  </a>
+  
+    <nav class="md-nav" aria-label="DR003: Developers MUST adhere to HTTP safety and idempotency semantics for operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_1" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr004-server-communication-must-remain-stateless" class="md-nav__link">
+    DR004: Server communication MUST remain stateless
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr005-content-relationship-must-be-predictably-implemented" class="md-nav__link">
+    DR005: Content relationship MUST be predictably implemented
+  </a>
+  
+    <nav class="md-nav" aria-label="DR005: Content relationship MUST be predictably implemented">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_2" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr006-operations-must-be-predictably-implemented" class="md-nav__link">
+    DR006: Operations MUST be predictably implemented
+  </a>
+  
+    <nav class="md-nav" aria-label="DR006: Operations MUST be predictably implemented">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_3" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr007-api-version-must-be-accessible-through-the-api" class="md-nav__link">
+    DR007: API version MUST be accessible through the API
+  </a>
+  
+    <nav class="md-nav" aria-label="DR007: API version MUST be accessible through the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_4" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr008-apis-must-at-least-support-the-deflate-and-gzip-compression-algorithms" class="md-nav__link">
+    DR008: APIs MUST at least support the DEFLATE and gzip compression algorithms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr009-apis-must-support-the-use-of-http-accept-encoding-and-content-encoding-header-fields-for-negotiating-compression" class="md-nav__link">
+    DR009: APIs MUST support the use of HTTP Accept-Encoding and Content-Encoding header fields for negotiating compression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr011-json-formatted-content-should-comply-to-rfc-8259-or-its-successor" class="md-nav__link">
+    DR011: JSON formatted content SHOULD comply to RFC 8259 or its successor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr012-when-describing-an-api-where-data-is-being-transferred-to-another-party-the-notified-pull-exchange-pattern-should-be-used-rather-than-the-push-exchange-pattern" class="md-nav__link">
+    DR012: When describing an API where data is being transferred to another party, the NOTIFIED PULL exchange pattern SHOULD be used rather than the PUSH exchange pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr013-system-apis-should-be-designed-independent-of-specific-use-cases-and-types-of-client-systems-or-users" class="md-nav__link">
+    DR013: System APIs SHOULD be designed independent of specific use cases and types of client systems or users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr014-process-apis-should-be-designed-to-reuse-system-apis" class="md-nav__link">
+    DR014: Process APIs SHOULD be designed to reuse System APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr015-experience-apis-should-be-based-on-process-apis" class="md-nav__link">
+    DR015: Experience APIs SHOULD be based on Process APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr016-system-apis-should-be-based-on-the-operations-messaging-or-resource-paradigm-rather-than-the-document-paradigm" class="md-nav__link">
+    DR016: System APIs SHOULD be based on the operations, messaging, or resource paradigm rather than the document paradigm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soap" class="md-nav__link">
+    SOAP
+  </a>
+  
+    <nav class="md-nav" aria-label="SOAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dr-s001-apis-may-use-mtomxop-for-formatting-binary-data" class="md-nav__link">
+    DR-S001: APIs MAY use MTOM/XOP for formatting binary data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-s002-api-clients-must-support-mtomxop-formatting-of-binary-data" class="md-nav__link">
+    DR-S002: API clients MUST support MTOM/XOP formatting of binary data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restful" class="md-nav__link">
+    RESTful
+  </a>
+  
+    <nav class="md-nav" aria-label="RESTful">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dr-r001-apis-must-use-nouns-to-name-resources" class="md-nav__link">
+    DR-R001: APIs MUST use nouns to name resources
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R001: APIs MUST use nouns to name resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples_1" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r002-apis-must-use-singular-nouns-to-name-collection-resources" class="md-nav__link">
+    DR-R002: APIs MUST use singular nouns to name collection resources
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R002: APIs MUST use singular nouns to name collection resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r003-apis-must-hide-irrelevant-implementation-details" class="md-nav__link">
+    DR-R003: APIs MUST hide irrelevant implementation details
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R003: APIs MUST hide irrelevant implementation details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples_3" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r004-apis-must-support-both-json-and-xml-formatting" class="md-nav__link">
+    DR-R004: APIs MUST support both JSON and XML formatting
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R004: APIs MUST support both JSON and XML formatting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_5" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r005-api-clients-must-at-least-support-json-or-xml-formatting" class="md-nav__link">
+    DR-R005: API clients MUST at least support JSON or XML formatting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r006-apis-may-support-bson-formatting" class="md-nav__link">
+    DR-R006: APIs MAY support BSON formatting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r007-apis-must-use-the-accept-header-for-content-negotiation" class="md-nav__link">
+    DR-R007: APIs MUST use the Accept header for content negotiation
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R007: APIs MUST use the Accept header for content negotiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_6" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r008-apis-must-use-the-content-type-header-for-content-negotiation" class="md-nav__link">
+    DR-R008: APIs MUST use the Content-Type header for content negotiation
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R008: APIs MUST use the Content-Type header for content negotiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_7" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-security/" class="md-nav__link">
+        API security
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../health-information-standards-compliance/" class="md-nav__link">
+        Health Information Standards compliance
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-with-national-api-design-rules" class="md-nav__link">
+    Compliance with national API design rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generic" class="md-nav__link">
+    Generic
+  </a>
+  
+    <nav class="md-nav" aria-label="Generic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dr001-interfaces-must-be-defined-in-english" class="md-nav__link">
+    DR001: Interfaces MUST be defined in English
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr002-developers-must-only-apply-standard-http-methods" class="md-nav__link">
+    DR002: Developers MUST only apply standard HTTP methods
+  </a>
+  
+    <nav class="md-nav" aria-label="DR002: Developers MUST only apply standard HTTP methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr003-developers-must-adhere-to-http-safety-and-idempotency-semantics-for-operations" class="md-nav__link">
+    DR003: Developers MUST adhere to HTTP safety and idempotency semantics for operations
+  </a>
+  
+    <nav class="md-nav" aria-label="DR003: Developers MUST adhere to HTTP safety and idempotency semantics for operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_1" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr004-server-communication-must-remain-stateless" class="md-nav__link">
+    DR004: Server communication MUST remain stateless
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr005-content-relationship-must-be-predictably-implemented" class="md-nav__link">
+    DR005: Content relationship MUST be predictably implemented
+  </a>
+  
+    <nav class="md-nav" aria-label="DR005: Content relationship MUST be predictably implemented">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_2" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr006-operations-must-be-predictably-implemented" class="md-nav__link">
+    DR006: Operations MUST be predictably implemented
+  </a>
+  
+    <nav class="md-nav" aria-label="DR006: Operations MUST be predictably implemented">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_3" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr007-api-version-must-be-accessible-through-the-api" class="md-nav__link">
+    DR007: API version MUST be accessible through the API
+  </a>
+  
+    <nav class="md-nav" aria-label="DR007: API version MUST be accessible through the API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_4" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr008-apis-must-at-least-support-the-deflate-and-gzip-compression-algorithms" class="md-nav__link">
+    DR008: APIs MUST at least support the DEFLATE and gzip compression algorithms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr009-apis-must-support-the-use-of-http-accept-encoding-and-content-encoding-header-fields-for-negotiating-compression" class="md-nav__link">
+    DR009: APIs MUST support the use of HTTP Accept-Encoding and Content-Encoding header fields for negotiating compression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr011-json-formatted-content-should-comply-to-rfc-8259-or-its-successor" class="md-nav__link">
+    DR011: JSON formatted content SHOULD comply to RFC 8259 or its successor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr012-when-describing-an-api-where-data-is-being-transferred-to-another-party-the-notified-pull-exchange-pattern-should-be-used-rather-than-the-push-exchange-pattern" class="md-nav__link">
+    DR012: When describing an API where data is being transferred to another party, the NOTIFIED PULL exchange pattern SHOULD be used rather than the PUSH exchange pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr013-system-apis-should-be-designed-independent-of-specific-use-cases-and-types-of-client-systems-or-users" class="md-nav__link">
+    DR013: System APIs SHOULD be designed independent of specific use cases and types of client systems or users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr014-process-apis-should-be-designed-to-reuse-system-apis" class="md-nav__link">
+    DR014: Process APIs SHOULD be designed to reuse System APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr015-experience-apis-should-be-based-on-process-apis" class="md-nav__link">
+    DR015: Experience APIs SHOULD be based on Process APIs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr016-system-apis-should-be-based-on-the-operations-messaging-or-resource-paradigm-rather-than-the-document-paradigm" class="md-nav__link">
+    DR016: System APIs SHOULD be based on the operations, messaging, or resource paradigm rather than the document paradigm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soap" class="md-nav__link">
+    SOAP
+  </a>
+  
+    <nav class="md-nav" aria-label="SOAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dr-s001-apis-may-use-mtomxop-for-formatting-binary-data" class="md-nav__link">
+    DR-S001: APIs MAY use MTOM/XOP for formatting binary data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-s002-api-clients-must-support-mtomxop-formatting-of-binary-data" class="md-nav__link">
+    DR-S002: API clients MUST support MTOM/XOP formatting of binary data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restful" class="md-nav__link">
+    RESTful
+  </a>
+  
+    <nav class="md-nav" aria-label="RESTful">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dr-r001-apis-must-use-nouns-to-name-resources" class="md-nav__link">
+    DR-R001: APIs MUST use nouns to name resources
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R001: APIs MUST use nouns to name resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples_1" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r002-apis-must-use-singular-nouns-to-name-collection-resources" class="md-nav__link">
+    DR-R002: APIs MUST use singular nouns to name collection resources
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R002: APIs MUST use singular nouns to name collection resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r003-apis-must-hide-irrelevant-implementation-details" class="md-nav__link">
+    DR-R003: APIs MUST hide irrelevant implementation details
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R003: APIs MUST hide irrelevant implementation details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples_3" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r004-apis-must-support-both-json-and-xml-formatting" class="md-nav__link">
+    DR-R004: APIs MUST support both JSON and XML formatting
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R004: APIs MUST support both JSON and XML formatting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_5" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r005-api-clients-must-at-least-support-json-or-xml-formatting" class="md-nav__link">
+    DR-R005: API clients MUST at least support JSON or XML formatting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r006-apis-may-support-bson-formatting" class="md-nav__link">
+    DR-R006: APIs MAY support BSON formatting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r007-apis-must-use-the-accept-header-for-content-negotiation" class="md-nav__link">
+    DR-R007: APIs MUST use the Accept header for content negotiation
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R007: APIs MUST use the Accept header for content negotiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_6" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-r008-apis-must-use-the-content-type-header-for-content-negotiation" class="md-nav__link">
+    DR-R008: APIs MUST use the Content-Type header for content negotiation
+  </a>
+  
+    <nav class="md-nav" aria-label="DR-R008: APIs MUST use the Content-Type header for content negotiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sub-requirements_7" class="md-nav__link">
+    Sub-requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/nictiz/api-requirements-docs/blob/main/docs/api-design-rules.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/nictiz/api-requirements-docs/raw/main/docs/api-design-rules.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="api-design-rules">API design rules</h1>
+<p>Design rules focus on the technical implementation of the APIs.</p>
+<h2 id="compliance-with-national-api-design-rules">Compliance with national API design rules</h2>
+<p>The <a href="https://docs.geostandaarden.nl/api/API-Strategie/">Dutch National API strategy</a> by Geonovum contains
+<a href="https://publicatie.centrumvoorstandaarden.nl/api/adr/">design rules</a> that were considered when writing this chapter.
+Unfortunately, these rules would exclude the use of FHIR, which is the most considered base for any RESTful transaction
+in healthcare. It also focuses on the use of RESTful interfaces, while SOAP is still used for APIs as well, especially
+with IHE-profiles, like XDS, XCA, etc.</p>
+<h2 id="generic">Generic</h2>
+<h3 id="dr001-interfaces-must-be-defined-in-english">DR001: Interfaces MUST be defined in English</h3>
+<p>Healthcare APIs are used internationally, which is why a lot are already available in English. Conforming to this will
+help with uniformity and attract non-Dutch developers.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API specifier</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr002-developers-must-only-apply-standard-http-methods">DR002: Developers MUST only apply standard HTTP methods</h3>
+<p>The HTTP specification (<a href="https://datatracker.ietf.org/doc/html/rfc7231">RFC 7231</a>) and the later introduced PATCH method
+specification (<a href="https://datatracker.ietf.org/doc/html/rfc5789">RFC 5789</a>) offer a set of standard methods, where every
+method is designed with explicit semantics. Adhering to the HTTP specification is crucial since HTTP clients and
+middleware applications rely on standardized characteristics. Therefore, resources must be retrieved or manipulated
+using standard HTTP methods.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td><strong>Dutch National API strategy</strong></td>
+<td>API-03</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sub-requirements">Sub-requirements</h4>
+<ul>
+<li><strong>DR002.001</strong>: HTTP GET method <strong>MUST</strong> be used to retrieve a resource representation for the given URI<ul>
+<li>Data is only retrieved and never modified.</li>
+</ul>
+</li>
+<li><strong>DR002.002</strong>: HTTP POST method <strong>MUST</strong> be used to create a resource<ul>
+<li>The receiver generates a new URI.</li>
+</ul>
+</li>
+<li><strong>DR002.003</strong>: HTTP PUT method <strong>MUST</strong> be used to create a resource with the given URI or replace (full update) a
+resource when the resource already exists</li>
+<li><strong>DR002.004</strong>: HTTP PATCH method <strong>MUST</strong> be used to partially update an existing resource<ul>
+<li>The request only contains the resource modifications instead of the full resource representation.</li>
+</ul>
+</li>
+<li><strong>DR002.005</strong>: HTTP DELETE method <strong>MUST</strong> be used to remove a resource with the given URI</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td>Read</td>
+<td>Retrieve a resource representation for the given URI. Data is only retrieved and never modified.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>Create</td>
+<td>Create a resource. The receiver generates a new URI.</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>Create/update</td>
+<td>Create a resource with the given URI or replace (full update) a resource when the resource already exists.</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>Update</td>
+<td>Partially updates an existing resource. The request only contains the resource modifications instead of the full resource representation.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>Delete</td>
+<td>Remove a resource with the given URI.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples">Examples</h4>
+<p>The following table shows some examples of the use of standard HTTP methods:</p>
+<table>
+<thead>
+<tr>
+<th>Request</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /Patient</code></td>
+<td>Retrieves a list of patients.</td>
+</tr>
+<tr>
+<td><code>GET /Patient/12</code></td>
+<td>Retrieves an individual patient.</td>
+</tr>
+<tr>
+<td><code>POST /Patient</code></td>
+<td>Creates a new patient.</td>
+</tr>
+<tr>
+<td><code>PUT /Patient/12</code></td>
+<td>Modifies Patient #12 completely.</td>
+</tr>
+<tr>
+<td><code>PATCH /Patient/12</code></td>
+<td>Modifies Patient #12 partially.</td>
+</tr>
+<tr>
+<td><code>DELETE /Patient/12</code></td>
+<td>Deletes Patient #12.</td>
+</tr>
+</tbody>
+</table>
+<p>HTTP also defines other methods, e.g., <code>HEAD</code>, <code>OPTIONS</code> and <code>TRACE</code>. For this design rule, these operations are left
+out of scope.</p>
+<h3 id="dr003-developers-must-adhere-to-http-safety-and-idempotency-semantics-for-operations">DR003: Developers MUST adhere to HTTP safety and idempotency semantics for operations</h3>
+<p>The HTTP protocol (<a href="https://datatracker.ietf.org/doc/html/rfc7231">RFC 7231</a>) specifies whether an HTTP method should be
+considered safe and/or idempotent. These characteristics are important for clients and middleware applications because
+they should be considered when implementing caching and fault tolerance strategies.</p>
+<p>Request methods are considered <em>safe</em> if their defined semantics are essentially read-only, i.e., the client does not
+request, and does not expect, any state change on the origin server because of applying a safe method to a target
+resource. A request method is considered <em>idempotent</em> if the intended effect on the server of multiple identical
+requests with that method is the same as the effect for a single such request.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td><strong>Dutch National API strategy</strong></td>
+<td>API-01</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sub-requirements_1">Sub-requirements</h4>
+<ul>
+<li><strong>DR003.001</strong>: HTTP <code>GET</code> method <strong>MUST</strong> behave as safe</li>
+<li><strong>DR003.002</strong>: HTTP <code>GET</code> method <strong>MUST</strong> behave as idempotent</li>
+<li><strong>DR003.003</strong>: HTTP <code>HEAD</code> method <strong>MUST</strong> behave as safe</li>
+<li><strong>DR003.004</strong>: HTTP <code>HEAD</code> method <strong>MUST</strong> behave as idempotent</li>
+<li><strong>DR003.005</strong>: HTTP <code>OPTIONS</code> method <strong>MUST</strong> behave as safe</li>
+<li><strong>DR003.006</strong>: HTTP <code>OPTIONS</code> method <strong>MUST</strong> behave as idempotent</li>
+<li><strong>DR003.007</strong>: HTTP <code>POST</code> method <strong>MUST NOT</strong> behave as safe</li>
+<li><strong>DR003.008</strong>: HTTP <code>POST</code> method <strong>MUST NOT</strong> behave as idempotent</li>
+<li><strong>DR003.009</strong>: HTTP <code>PUT</code> method <strong>MUST NOT</strong> behave as safe</li>
+<li><strong>DR003.010</strong>: HTTP <code>PUT</code> method <strong>MUST</strong> behave as idempotent</li>
+<li><strong>DR003.011</strong>: HTTP <code>PATCH</code> method <strong>MUST NOT</strong> behave as safe</li>
+<li><strong>DR003.012</strong>: HTTP <code>PATCH</code> method <strong>MUST NOT</strong> behave as idempotent</li>
+<li><strong>DR003.013</strong>: HTTP <code>DELETE</code> method <strong>MUST NOT</strong> behave as safe</li>
+<li><strong>DR003.014</strong>: HTTP <code>DELETE</code> method <strong>MUST</strong> behave as idempotent</li>
+</ul>
+<p>The following table describes which HTTP methods must behave as safe and/or idempotent:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Safe</th>
+<th>Idempotent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>HEAD</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>OPTIONS</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr004-server-communication-must-remain-stateless">DR004: Server communication MUST remain stateless</h3>
+<p>One of the key constraints of the REST architectural style is stateless communication between client and server. It
+means that every request from client to server must contain all the information necessary to understand the request. The
+server cannot take advantage of any stored session context on the server as it didn't memorize previous requests.
+Session state must therefore reside entirely on the client.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<p>To properly understand this constraint, it's important to make a distinction between two distinct kinds of state:</p>
+<ul>
+<li><em>Session state</em>: information about the interactions of an end-user with a particular client application within the
+  same user session, such as the last page being viewed, the login state or form data in a multi-step registration
+  process. Session state must reside entirely on the client (e.g., in the user's browser).</li>
+<li><em>Resource state</em>: information that is permanently stored on the server beyond the scope of a single user session, such
+  as the user's profile, a product purchase or information about a building. Resource state is persisted on the server
+  and must be exchanged between client and server (in both directions) using representations as part of the request or
+  response payload. This is where the term <em>REpresentational State Transfer (REST)</em> originates from.</li>
+</ul>
+<blockquote>
+<p>It's a misconception that there should be no state at all. The stateless communication constraint should be seen from
+the server's point of view and states that the server should not be aware of any session state.</p>
+</blockquote>
+<p>Stateless communication offers many advantages, including:</p>
+<ul>
+<li><em>Simplicity</em> is increased because the server doesn't have to memorize or retrieve the session state while processing
+  requests</li>
+<li><em>Scalability</em> is improved because not having to incorporate the session state across multiple requests enables higher
+  concurrency and performance</li>
+<li><em>Observability</em> is improved since every request can be monitored or analysed in isolation without having to incorporate
+  session context from other requests</li>
+<li><em>Reliability</em> is improved because it simplifies the task of recovering from partial failures since the server doesn't
+  have to maintain, update or communicate the session state. One failing request does not influence other requests
+  (depending on the nature of the failure of course).</li>
+</ul>
+<p>In the context of REST APIs, the server must not maintain or require any notion of the functionality of the client
+application and the corresponding end-user interactions. To achieve full decoupling between client and server, and to
+benefit from the advantages mentioned above, no session state must reside on the server. Session state must therefore
+reside entirely on the client.</p>
+<blockquote>
+<p>The client of a REST API could be a variety of applications such as a browser application, a mobile or desktop
+application or even another server serving as a backend component for another client. REST APIs should therefore be
+completely client agnostic.</p>
+</blockquote>
+<h3 id="dr005-content-relationship-must-be-predictably-implemented">DR005: Content relationship MUST be predictably implemented</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>OA, TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sub-requirements_2">Sub-requirements</h4>
+<ul>
+<li><strong>DR005.001</strong>: When using several content relationships within an API, adding more relationships <strong>MUST</strong> adhere to
+  the same implementation choices<ul>
+<li>For example, if a child resource is already available through stacking of endpoint, another child resource must be
+  made available in the same manner.</li>
+</ul>
+</li>
+</ul>
+<h3 id="dr006-operations-must-be-predictably-implemented">DR006: Operations MUST be predictably implemented</h3>
+<p>An API can be made more accessible using operations.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>OA, TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sub-requirements_3">Sub-requirements</h4>
+<ul>
+<li><strong>DR006.001</strong>: The operations in one API <strong>MUST</strong> all be implemented in the same way<ul>
+<li>For example, if an operation is called with a prefix, the same prefix must be used for every other operation on
+  the same API.</li>
+</ul>
+</li>
+</ul>
+<h3 id="dr007-api-version-must-be-accessible-through-the-api">DR007: API version MUST be accessible through the API</h3>
+<p>The version of an API can be useful in development and debugging.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>OA, TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sub-requirements_4">Sub-requirements</h4>
+<ul>
+<li><strong>DR007.001</strong>: The API version <strong>MAY</strong> be made accessible through the URL-path<ul>
+<li>For example, <code>/v1/api/...</code></li>
+</ul>
+</li>
+<li><strong>DR007.002</strong>: The API version <strong>MAY</strong> be made accessible through a HTTP header<ul>
+<li>For example, in <code>Accept</code> (request) and <code>Content-Type</code> (response).</li>
+</ul>
+</li>
+<li><strong>DR007.003</strong>: The API version <strong>MAY</strong> be made accessible through a separate request<ul>
+<li>For example, in response to <code>/api/version</code></li>
+</ul>
+</li>
+<li><strong>DR007.004</strong>: The API version <strong>MAY</strong> be made accessible through the API in a way not covered in this specification</li>
+</ul>
+<h3 id="dr008-apis-must-at-least-support-the-deflate-and-gzip-compression-algorithms">DR008: APIs MUST at least support the DEFLATE and gzip compression algorithms</h3>
+<p>The use of compression algorithms can reduce communication size. This is especially useful when transferring large data
+objects. The algorithms DEFLATE and gzip are widely used in HTTP communication.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr009-apis-must-support-the-use-of-http-accept-encoding-and-content-encoding-header-fields-for-negotiating-compression">DR009: APIs MUST support the use of HTTP Accept-Encoding and Content-Encoding header fields for negotiating compression</h3>
+<p>The <code>Accept-Encoding</code> and <code>Content-Encoding</code> header fields are used to negotiate the compression algorithms. The API
+client will use the <code>Accept-Encoding</code> header field to communicate which compression algorithms are supported. The API
+server will use the <code>Content-Encoding</code> header field to confirm which compression algorithm is used.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API client developer, API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr011-json-formatted-content-should-comply-to-rfc-8259-or-its-successor">DR011: JSON formatted content SHOULD comply to RFC 8259 or its successor</h3>
+<p>The design of JSON is described by IETF in <a href="https://datatracker.ietf.org/doc/rfc8259/">RFC 8259</a>. Any use of JSON
+<strong>SHOULD</strong> be compliant with this RFC or its successor.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr012-when-describing-an-api-where-data-is-being-transferred-to-another-party-the-notified-pull-exchange-pattern-should-be-used-rather-than-the-push-exchange-pattern">DR012: When describing an API where data is being transferred to another party, the NOTIFIED PULL exchange pattern SHOULD be used rather than the PUSH exchange pattern</h3>
+<p>This way, the receiving party can decide when or how the transferred data is received and processed.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API specifier</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr013-system-apis-should-be-designed-independent-of-specific-use-cases-and-types-of-client-systems-or-users">DR013: System APIs SHOULD be designed independent of specific use cases and types of client systems or users</h3>
+<p>Making the System APIs independent of a specific use case encourages the reuse of these APIs.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr014-process-apis-should-be-designed-to-reuse-system-apis">DR014: Process APIs SHOULD be designed to reuse System APIs</h3>
+<p>Process APIs make use of the System APIs. It is encouraged to reuse already existing System APIs.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr015-experience-apis-should-be-based-on-process-apis">DR015: Experience APIs SHOULD be based on Process APIs</h3>
+<p>Experience APIs are by definition based on Process APIs, this <strong>SHOULD</strong> always be the case.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr016-system-apis-should-be-based-on-the-operations-messaging-or-resource-paradigm-rather-than-the-document-paradigm">DR016: System APIs SHOULD be based on the operations, messaging, or resource paradigm rather than the document paradigm</h3>
+<p>To be fully atomic the document paradigm <strong>SHOULD</strong> be avoided in system APIs.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="soap">SOAP</h2>
+<h3 id="dr-s001-apis-may-use-mtomxop-for-formatting-binary-data">DR-S001: APIs MAY use MTOM/XOP for formatting binary data</h3>
+<p>When a SOAP message contains a large binary object, it can be optimized for processing by using MTOM/XOP. APIs <strong>MAY</strong>
+use MTOM/XOP to create a multipart MIME to link from the SOAP body to a mime part which holds the binary data.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API specifier</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr-s002-api-clients-must-support-mtomxop-formatting-of-binary-data">DR-S002: API clients MUST support MTOM/XOP formatting of binary data</h3>
+<p>Design rule DR-S001 determined that an API <strong>MAY</strong> use MTOM/XOP when it believes it is necessary to optimize processing
+of the message. To be able to use these APIs, API clients <strong>MUST</strong> support MTOM/XOP as well.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API client developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="restful">RESTful</h2>
+<p>The REST architectural style is centred around the concept of a resource. A resource is the key abstraction of
+information, where every piece of information is named by assigning a globally unique URI (Uniform Resource Identifier).
+Resources describe <em>things</em>, which can vary between physical objects (e.g., a building or a person) and more abstract
+concepts (e.g., a permit or an event).</p>
+<h3 id="dr-r001-apis-must-use-nouns-to-name-resources">DR-R001: APIs MUST use nouns to name resources</h3>
+<p>Because resources describe things (and thus not actions), resources are referred to using nouns (instead of verbs) that
+are relevant from the perspective of the user of the API.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API specifier</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td><strong>Dutch National API strategy</strong></td>
+<td>API-05</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_1">Examples</h4>
+<p>A few correct examples of nouns as part of FHIR:</p>
+<ul>
+<li>Patient</li>
+<li>Observation</li>
+<li>AllergyIntolerance</li>
+</ul>
+<h3 id="dr-r002-apis-must-use-singular-nouns-to-name-collection-resources">DR-R002: APIs MUST use singular nouns to name collection resources</h3>
+<p>Resources can be grouped into collections, which are resources in their own right and can typically be paged, sorted and
+filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource
+describing multiple things is called a collection resource. Collection resources typically contain references to the
+underlying singular resources. A collection resource could still contain only one contained resource, therefore the path
+segment describing the name of the collection resource <strong>MUST</strong> be written in the singular form.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API specifier</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<p>A collection resource could still contain only one contained resource, therefore the path segment describing the name of
+the collection resource <strong>MUST</strong> be written in the singular form.</p>
+<h4 id="examples_2">Examples</h4>
+<p>Example of how to collect a collection of resources in FHIR:</p>
+<ul>
+<li><code>https://api.example.org/Patient</code></li>
+<li><code>https://api.example.org/Observation?code=http://loinc.org|29463-7</code></li>
+</ul>
+<h3 id="dr-r003-apis-must-hide-irrelevant-implementation-details">DR-R003: APIs MUST hide irrelevant implementation details</h3>
+<p>An API should not expose implementation details of the underlying application. The primary motivation behind this design
+rule is that an API design must focus on usability for the client, regardless of the implementation details under the
+hood. The API, application and infrastructure need to be able to evolve independently to ease the task of maintaining
+backwards compatibility for APIs during an agile development process.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td><strong>Dutch National API strategy</strong></td>
+<td>API-53</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_3">Examples</h4>
+<p>A few examples of implementation details:</p>
+<ul>
+<li>The API design should not necessarily be a 1-to-1 mapping of the underlying domain or persistence model</li>
+<li>The API should not expose information about the technical components being used, such as development
+  platforms/frameworks or database systems</li>
+<li>The API should offer client-friendly attribute names and values, while persisted data may contain abbreviated terms or
+  serializations which might be cumbersome for consumption</li>
+</ul>
+<h3 id="dr-r004-apis-must-support-both-json-and-xml-formatting">DR-R004: APIs MUST support both JSON and XML formatting</h3>
+<p>JSON and XML both have their advantages and disadvantages. API clients can focus on either standard for all their API
+calls when all APIs support both. Therefore, APIs MUST support both JSON and XML formatting.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sub-requirements_5">Sub-requirements</h4>
+<ul>
+<li><strong>DR-R004.001</strong>: APIs <strong>MUST</strong> be able to convert consistently between JSON and XML formatting<ul>
+<li>Converting from one to the other and back to the first <strong>MUST</strong> result in the exact same resource.</li>
+</ul>
+</li>
+</ul>
+<h3 id="dr-r005-api-clients-must-at-least-support-json-or-xml-formatting">DR-R005: API clients MUST at least support JSON or XML formatting</h3>
+<p>As described in DR-R004, both JSON and XML will be supported from the APIs. API clients <strong>MUST</strong> therefore at least
+support one of the two formats. In the end this means the focus can be on either XML or JSON for all calls to available
+APIs.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API client developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr-r006-apis-may-support-bson-formatting">DR-R006: APIs MAY support BSON formatting</h3>
+<p>BSON are used to communicate JSON in a binary object. This is an innovative technology that could improve performance in
+larger JSON objects. APIs <strong>MAY</strong> therefore support BSON formatting.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dr-r007-apis-must-use-the-accept-header-for-content-negotiation">DR-R007: APIs MUST use the Accept header for content negotiation</h3>
+<p>The HTTP header <code>Accept</code> is used to communicate which content types can be understood by the API clients.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer, API client developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sub-requirements_6">Sub-requirements</h4>
+<ul>
+<li><strong>DR-R007.001</strong>: The API client <strong>MUST</strong> use the <code>Accept</code> header to communicate which content types the client is able
+  to understand</li>
+<li><strong>DR-R007.002</strong>: The API server <strong>MUST</strong> use the <code>Accept</code> header value to decide the response content type</li>
+</ul>
+<h3 id="dr-r008-apis-must-use-the-content-type-header-for-content-negotiation">DR-R008: APIs MUST use the Content-Type header for content negotiation</h3>
+<p>The HTTP header <code>Content-Type</code> is used to communicate which content type is used in communication between client and
+server.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Applicable roles</strong></td>
+<td>API server developer, API client developer</td>
+</tr>
+<tr>
+<td><strong>Standardization levels</strong></td>
+<td>TSA, FSA</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Final</td>
+</tr>
+<tr>
+<td><strong>Since version</strong></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sub-requirements_7">Sub-requirements</h4>
+<ul>
+<li><strong>DR-R008.001</strong>: The API server <strong>MUST</strong> use the <code>Content-Type</code> header to communicate the content type</li>
+<li><strong>DR-R008.002</strong>: The API client <strong>MUST</strong> use the <code>Content-Type</code> header value to decide how to process the response</li>
+</ul>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6fE2LxSBPYYKa-qFGkCOp265BpPPuQIq4l0w8NWqXeUKyGg/viewform?entry.816166561=/api-design-rules/" target="_blank" rel="noopener">telling us what you're missing</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../api-agreements/" class="md-footer__link md-footer__link--prev" aria-label="Previous: API agreements" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                API agreements
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../api-security/" class="md-footer__link md-footer__link--next" aria-label="Next: API security" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Next
+                </span>
+                API security
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 Nictiz | <a href="#__consent">Change cookie settings</a> | <a href="https://nictiz.nl/privacy-statement" target="_blank" rel="noopener">Privacy statement</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/nictiz/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.action.view", "content.action.edit"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ce72ebac.min.js"></script>
+      
+    
+  </body>
+</html>
