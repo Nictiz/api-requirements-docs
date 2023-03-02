@@ -159,8 +159,9 @@ commit on the `gh-pages` branch every time a new version of the documentation is
 
 ### Setting the Default Version
 
-When the first version has been published, checkout the `gh-pages` branch and set the default version to `latest` so
-that people visiting the root of the site are redirected to the latest version of the documentation:
+After the first version has been published, bring your local copy of the remote repository up to date by running the
+`git fetch` command. Then set the default version to `latest` on the `gh-pages` branch so that people visiting the root
+of the site are redirected to the latest version of the documentation:
 
 ```
 mike set-default --push latest
