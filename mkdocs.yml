@@ -28,6 +28,7 @@ nav:
 # Configuration
 theme:
   name: material
+  custom_dir: overrides
   language: en
   palette:
     # Palette toggle for light mode
