@@ -126,3 +126,14 @@ Summarize changes this release brings.
 
 - Add "Rules for writing requirements" section
 ```
+
+## Writing Docs
+
+Documentation source files are written in Markdown. Markdown is a simple and easy-to-use markup language for creating
+formatted text using a plain-text editor. Visit open-source reference guide
+[The Markdown Guide](https://www.markdownguide.org/) to learn more about Markdown.
+
+### Rules
+
+For the sake of readability, contributors **MUST** wrap lines at **120** characters. This does not apply to Markdown
+headings and tables (Extended Syntax). Refer to your IDE/text editor's documentation on how to configure visual guides.
