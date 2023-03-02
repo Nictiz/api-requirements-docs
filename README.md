@@ -191,3 +191,9 @@ Password: <my-personal-access-token>
 Visit
 [GitHub Docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 to learn more about creating a personal access token.
+
+## Viewing Docs
+
+Documentation is automatically deployed to GitHub Pages and can be found on:
+
+[https://nictiz.github.io/api-requirements-docs/](https://nictiz.github.io/api-requirements-docs/)
