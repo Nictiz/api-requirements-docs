@@ -68,6 +68,26 @@ to be interpreted as follows:
 - **Superseded**: The requirement has a known better alternative, but the requirement itself is not going away.
 - **Deprecated**: The requirement is no longer to be used for conformity assessment.
 
+## Rules for writing requirements
+
+To ensure consistent and clear naming, requirements and the accompanying explanations are to be written as follows:
+
+- The requirement text **MUST** be capitalized
+- The requirement text **MUST NOT** end with a period
+- The explanation text **MUST** be capitalized
+- The explanation text **MUST** end with a period
+- When a requirement is conditional, it **MUST** be of the form "If [condition], [requirement]" or "When [condition],
+  [requirement]"
+- A sub-requirement **MUST NOT** apply to other roles or standardization levels than the main requirement it belongs to
+
+Furthermore:
+
+- When terms, abbreviations or acronyms are used, they **MUST** be written (e.g., capitalized, spaced, hyphenated)
+  correctly (e.g., OAuth, OpenID Connect, WS-Security, JSON, JWS, NEN 7513, IETF, RFC 7523, W3C, etc.)
+- American (US) English spelling **MUST** be used (e.g., "standardization" instead of "standardisation")
+- Straight quotation marks ( ' or " ) **MUST** be used instead of curly quotation marks (also known as "smart quotes" or
+  typographer's quotes)
+
 ## Versioning of this specification
 
 This specification follows the [Semantic Version 2.0.0](https://semver.org/) (SemVer) specification for versioning. This
