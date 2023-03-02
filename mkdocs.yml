@@ -48,8 +48,11 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.footer
     - search.suggest
     - search.highlight
+    - content.action.view
+    - content.action.edit
   font:
     text: Roboto
     code: JetBrains Mono
