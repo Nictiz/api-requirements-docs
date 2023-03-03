@@ -128,7 +128,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - Add CHANGELOG.md
 
-## X.Y.Z - YYYY-MM-DD
+## [X.Y.Z] - YYYY-MM-DD
 
 Summarize changes this release brings.
 
