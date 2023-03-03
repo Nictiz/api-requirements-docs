@@ -13,7 +13,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - Add CHANGELOG.md
 
-## [v1.1.0] - 2023-03-03
+## [v1.1.0] - 2023-03-02
 
 This release refactors documentation to Markdown, adds clear sub-requirements, introduces git conventions and automates
 the deployment of new versions to GitHub Pages as a fast, simple and searchable static site.
