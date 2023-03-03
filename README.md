@@ -71,20 +71,23 @@ Further paragraphs come after blank lines.
 Not every commit messages necessitates the use of both a subject and a body. A single line indicating the subject can be
 sufficient in some cases, especially when the change is so little that no more context is required.
 
-## Release Notes
+## Changelog
 
-We use
+This project documents all notable changes in the `CHANGELOG.md` file. The format is based on
+[Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and [Common Changelog](https://common-changelog.org/).
+
+We embrace the guiding principle that changelogs must be written by humans and for humans. Spending a modest amount of
+time on writing a changelog saves every reader twice as much time. The changelog must tell someone what upgrading will
+do. It communicates an *intent* of change.
+
+This project uses
 [GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
-to trigger [deployment](#deploying-docs) of new versions of documentation to GitHub Pages and to create a formatted
-changelog. The release notes must tell someone what upgrading will do. It communicates an *intent* of change.
+to trigger [deployment](#deploying-docs) of new versions of documentation to GitHub Pages. The latest entry in the
+changelog is to be used as release notes.
 
-This project embraces the guiding principle of [Keep a Changelog](https://keepachangelog.com/) and
-[Common Changelog](https://common-changelog.org/) that changelogs must be written by humans and for humans. Spending a
-modest amount of time on writing a changelog saves every reader twice as much time.
+### Rules
 
-### Rules for Writing Release Notes
-
-Contributors **MUST** adhere to the following general guidelines when writing release notes:
+Contributors **MUST** adhere to the following general guidelines when adding to the changelog:
 
 - The same type of changes should be grouped:
     - `Added` for new features
@@ -101,14 +104,31 @@ Contributors **MUST** adhere to the following general guidelines when writing re
 - Breaking changes must be prefixed in bold with `**Breaking:**` and should be listed before other changes (per
   category).
 
-### Release Notes Markdown
+### Format
 
-The release notes are written in Markdown. The "Release title" that is entered as part of the standard GitHub release
-management process is considered to be the `h1` heading (`# Heading level 1` in Markdown). Release notes must start with
-a second-level Markdown heading.
+The changelog is written in Markdown.
+
+- Upcoming changes are tracked in an `Unreleased` section at the top.
+- A release must start with a semver-valid version (without "v" prefix) and a date in the form of `YYYY-MM-DD`
+  ([ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)).
 
 ```
-## Overview
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and
+[Common Changelog](https://common-changelog.org/).
+
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+
+- Add CHANGELOG.md
+
+## X.Y.Z - YYYY-MM-DD
 
 Summarize changes this release brings.
 
