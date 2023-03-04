@@ -51,6 +51,7 @@ the deployment of new versions to GitHub Pages as a fast, simple and searchable 
 - Add "Building Docs" section to README
 - Add "Deploying Docs" section to README
 - Add "Viewing Docs" section to README
+- Add "Status" to requirements
 - Add "Since version" to requirements
 - Add external links to relevant topics in docs
 - Add `MkDocs` static site generator
