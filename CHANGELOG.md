@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+### Changed
+
+- Modify SD009 to include non-English initiatives ([#3](https://github.com/Nictiz/api-requirements-docs/issues/3))
+
 ### Added
 
 - Add CHANGELOG.md
