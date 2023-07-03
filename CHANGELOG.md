@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+### Changed
+
+- Modify DR-R002 to include non-FHIR REST APIs ([#5](https://github.com/Nictiz/api-requirements-docs/issues/5))
+
 ### Added
 
 - Add CHANGELOG.md
