@@ -167,22 +167,22 @@ when writing API client code.
   standards
     - Such as OpenAPI (formerly known as Swagger) and/or FHIR StructureDefinitions/OperationDefinitions.
 
-## SD009: API documentation MUST be published in English
+## SD009: API documentation SHOULD be published in English
 
 |                            |               |
 |----------------------------|---------------|
 | **Applicable roles**       | API specifier |
 | **Standardization levels** | OA, TSA, FSA  |
 | **Status**                 | Final         |
-| **Since version**          | 1.0.0         |
+| **Since version**          | 1.2.0         |
 
 ### Sub-requirements
 
-- **SD009.001**: API documentation **MUST** be available in English
-- **SD009.002**: Typical Dutch terminology and names of people and organizations **MUST** be written down in their
-  original Dutch form
-- **SD009.003**: Domain concepts **MUST** be translated to their corresponding official English terms instead of using
-  literal (word-for-word) translations
+- **SD009.001**: API documentation **SHOULD** be available in English
+- **SD009.002**: If API documentation is available in English, typical Dutch terminology and names of people and
+  organizations **MUST** be written down in their original Dutch form
+- **SD009.003**: If API documentation is available in English, domain concepts **MUST** be translated to their
+  corresponding official English terms instead of using literal (word-for-word) translations
 
 ## SD010: When documentation claims compliance to standards, specifications, guidelines and practices, policies or law, documentation MUST provide (references to) evidence to back up these claims
 
