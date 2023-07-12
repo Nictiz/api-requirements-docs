@@ -372,23 +372,20 @@ A few correct examples of nouns as part of FHIR:
 - Observation
 - AllergyIntolerance
 
-### DR-R002: APIs MUST use singular nouns to name collection resources
+### DR-R002: APIs MUST consistently use either singular nouns or plural nouns to name collection resources
 
 Resources can be grouped into collections, which are resources in their own right and can typically be paged, sorted and
 filtered. Most often all collection members have the same type, but this is not necessarily the case. A resource
 describing multiple things is called a collection resource. Collection resources typically contain references to the
-underlying singular resources. A collection resource could still contain only one contained resource, therefore the path
-segment describing the name of the collection resource **MUST** be written in the singular form.
+underlying singular resources. The path segment describing the name of the collection resource **MUST** be written using
+a noun (thing) instead of a verb (action).
 
 |                            |               |
 |----------------------------|---------------|
 | **Applicable roles**       | API specifier |
 | **Standardization levels** | TSA, FSA      |
 | **Status**                 | Final         |
-| **Since version**          | 1.0.0         |
-
-A collection resource could still contain only one contained resource, therefore the path segment describing the name of
-the collection resource **MUST** be written in the singular form.
+| **Since version**          | 1.2.0         |
 
 #### Examples
 
@@ -396,6 +393,11 @@ Example of how to collect a collection of resources in FHIR:
 
 - `https://api.example.org/Patient`
 - `https://api.example.org/Observation?code=http://loinc.org|29463-7`
+
+Example of using plural nouns to name collection resources:
+
+- `https://api.example.org/patients`
+- `https://api.example.org/observations`
 
 ### DR-R003: APIs MUST hide irrelevant implementation details
 
