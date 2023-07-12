@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [1.2.0] - 2023-07-12
+
+This release adds a changelog and changes requirements to include non-English initiatives and non-FHIR REST APIs.
+
 ### Changed
 
 - Modify SD009 to include non-English initiatives ([#3](https://github.com/Nictiz/api-requirements-docs/issues/3))
